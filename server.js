@@ -24,9 +24,9 @@ hbs.registerHelper('screamIt',(text) =>{
   return text.toUpperCase();
 });
 
-app.use((req,res,next) => {
-  res.render('maintenance.hbs')
-});
+// app.use((req,res,next) => {
+//   res.render('maintenance.hbs')
+// });
 
 app.use(express.static(__dirname +'/public'));
 
@@ -38,6 +38,11 @@ app.get('/' , (req,res) =>
   });
 });
 
+app.get('/projects',(req,res)=>{
+  res.render('projects.hbs',{
+    pageTitle:'Projects'
+  })
+})
 app.get('/about',(req,res) => {
   res.render('about.hbs',{
     pageTitle: 'About page'
